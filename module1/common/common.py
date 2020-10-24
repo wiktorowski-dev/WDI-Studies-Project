@@ -12,7 +12,6 @@ import json
 class Common(object):
     def __init__(self):
         super(Common, self).__init__()
-        self.mail, self.password = self.__read_password_login_from_config()
         self.headers = ''
         self.session = requests.Session()
         self.previous_request_time = 0
@@ -47,24 +46,6 @@ class Common(object):
         query = urllib.parse.urlparse(url).query
         parsed_query = dict([x.split('=') for x in query.split('&')])
         return parsed_query
-
-    @staticmethod
-    def url_decode(url):
-        string = urllib.parse.unquote(url)
-        return string
-
-    @staticmethod
-    def __read_password_login_from_config():
-        with open(r'setting/config.json') as file:
-            data = json.load(file)
-        mail = data['mail']
-        password = data['password']
-        return mail, password
-
-    @staticmethod
-    def text_formatter(text):
-        text = text.strip()
-        return text
 
     @staticmethod
     def is_it_convertible_to_int(this):
