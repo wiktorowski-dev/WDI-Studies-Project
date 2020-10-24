@@ -4,8 +4,11 @@ class TemperatureConverter(object):
 
     def convert_temperature(self, temp_in, to_system: str):
         if type(temp_in) not in [int, float]:
-            print('Incorrect temperature, please type it correctly')
-            return None
+            try:
+                temp_in = float(temp_in)
+            except:
+                print('Incorrect temperature, please type it correctly')
+                return None
         if to_system.lower() == 'f':
             return self.__convert_c_to_f(temp_in)
         elif to_system.lower() == 'c':

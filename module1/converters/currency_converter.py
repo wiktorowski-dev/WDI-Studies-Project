@@ -7,8 +7,11 @@ class CurrencyConverter(Common):
 
     def convert_currency(self, currency_in, currency_to):
         if type(currency_in) not in [int, float]:
-            print('Incorrect currency value, please type it correctly')
-            return None
+            try:
+                currency_in = float(currency_in)
+            except:
+                print('Incorrect currency value, please type it correctly')
+                return None
 
         if currency_to.lower() == 'u':
             exchange_rate = self.__get_exchange_rate(currency_to)
