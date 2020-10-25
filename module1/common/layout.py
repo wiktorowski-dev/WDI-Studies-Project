@@ -65,7 +65,7 @@ class BasicRadiobuttonExample(QWidget):
         self.setGeometry(200, 200, 300, 300)
 
         self.setLayout(layout)
-        self.setWindowTitle('PyQt5 Radio Button Example')
+        self.setWindowTitle('The greatest converter on the world')
 
         self.show()
 
